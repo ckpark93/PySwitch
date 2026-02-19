@@ -15,6 +15,41 @@ Features are:
 
 - Free MIDI routing capatbilities for MIDI over USB and/or DIN
 
+## Custom Example Summary: Quad Cortex / MIDICaptain Mini 6 (Pages and Multi-Action)
+
+This repository includes a custom example at:
+`examples/Quad Cortex/MIDICaptain Mini 6/Pages and Multi-Action`
+
+Main behavior summary:
+
+- Key layout: top `key0 key1 key2`, bottom `key3 key4 key5`
+- Hold threshold: `600ms`
+- `key5` long press toggles Gig View (`CC46`)
+- `key2` short press cycles modes (`CC47`: `0 -> 1 -> 2`)
+
+When **Gig View is ON**:
+
+- `key0/1/3/4` short press controls current page `A/B/C/D`
+- `key0/1/3/4` long press controls opposite page `A/B/C/D`
+- `key2` long press swaps Quad Cortex footswitch page (`CC64`)
+- `key5` short press sends Tap Tempo (`CC44`)
+
+When **Gig View is OFF** (Chain/Normal):
+
+- `key0/1/3/4` short press sends internal MIDI page-based `A/B/C/D`
+- `key0` long press toggles Tuner (`CC45`)
+- `key1` long press swaps Quad Cortex footswitch page (`CC64`)
+- `key2` long press swaps internal MIDI page (without `CC64`)
+- `key3` long press moves Scene +1 (`CC43`, forward wrap)
+- `key4` long press moves Scene -1 (`CC43`, backward wrap)
+- `key5` short press sends Tap Tempo (`CC44`)
+
+Notes:
+
+- Display labels are constrained to `<= 5` characters per switch.
+- To run this example, copy `inputs.py`, `display.py`, and `communication.py` from the example folder to the controller root.
+- Optional hardware utility files (`battery_probe.py`, `code_probe.py`, `code_pyswitch.py`) are documented in the example README.
+
 ![Overview Image](https://github.com/user-attachments/assets/c48903b2-a5f7-4d78-b7eb-9fca98dbfbe0)
 
 ## Installation
